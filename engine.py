@@ -80,11 +80,11 @@ if __name__ == "__main__":
 	app = Flask(__name__)
 
 	@app.route('/synthesize/', defaults={'text': ''})
-	@app.route('/synthesize/<path:text>')
 	def synthesize(text):
+		text = request.args['text']
 		if(text == ''): return 'No input'
 		
-		line = urllib.parse.unquote(request.url[request.url.find('synthesize/')+11:])
+		line = urllib.parse.unquote(text)
 		filename = "GLaDOS-tts-"+line.replace(" ", "-")
 		filename = filename.replace("!", "")
 		filename = filename.replace("°c", "degrees celcius")

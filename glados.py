@@ -61,4 +61,4 @@ while(1):
         if 'winsound' in mod:
             winsound.PlaySound(output_file, winsound.SND_FILENAME)
         else:
-            call(["aplay", "./output.wav"])
+            call(["play", "./output.wav"])
